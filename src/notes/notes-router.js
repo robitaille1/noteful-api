@@ -28,6 +28,7 @@ notesRouter
     const { name, folder_id, content } = req.body
     const newNote = { name, folder_id, content }
 
+
     for (const [key, value] of Object.entries(newNote))
       if (value == null)
         return res.status(400).json({
@@ -41,7 +42,7 @@ notesRouter
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${note.id}`))
-          .json(serializeArticle(folder))
+          .json(serializeNote(note))
       })
       .catch(next)
   })
