@@ -7,6 +7,6 @@ require('dotenv').config();
       ? process.env.TEST_DATABASE_URL
       : process.env.DATABASE_URL,
    "ssl": !!process.env.SSL,
-   "username":"user",
-   "password":"pass"
+   "username": process.env.username,
+   "password": process.env.password
 }
